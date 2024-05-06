@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { spectral } from "./fonts";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
-  title: "Dogs",
-  description: "Site dogs",
+  title: "Dogs Next",
+  description: "A rede social para o seu cachorro!",
 };
 
 export default function RootLayout({
@@ -15,8 +13,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="br">
-      <body className={inter.className}>{children}</body>
+    <html lang="pt-BR">
+      <body className={spectral.className}>{children}</body>
     </html>
   );
 }
