@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { spectral } from "./fonts";
 import "./globals.css";
+import HeaderComponent from "@/components/header";
+import FooterComponent from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "Dogs Next",
@@ -14,7 +16,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={spectral.className}>{children}</body>
+      <body className={`mainContainer ${spectral.className}`}>
+        <HeaderComponent />
+        <main className="App">{children}</main>
+        <FooterComponent />
+      </body>
     </html>
   );
 }
