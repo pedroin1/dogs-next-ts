@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { spectral } from "./fonts";
-import "./globals.css";
+import "./globals.scss";
 import HeaderComponent from "@/components/header";
 import FooterComponent from "@/components/footer";
 

@@ -1,8 +1,13 @@
-export default function Home() {
+import { GetPhotosDogs } from "@/actions/photos-dogs-get";
+import FeedComponent from "@/components/feed";
+
+export default async function Home() {
+  const dogs = await GetPhotosDogs();
+
   return (
     <section>
       <div>
-        <p> PROJETO DE SITE DOGS COM NEXT</p>
+        <FeedComponent photos={dogs} />
       </div>
     </section>
   );
