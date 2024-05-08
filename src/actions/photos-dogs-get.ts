@@ -1,3 +1,4 @@
+'use server'
 export interface Photo {
   id: number;
   author: string;

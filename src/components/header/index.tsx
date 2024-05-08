@@ -6,9 +6,9 @@ export default function HeaderComponent() {
   const user = false;
 
   return (
-    <header className="header">
-      <nav className="nav">
-        <Link className="logo" href={"/"}>
+    <header className="header-container">
+      <nav className="nav-header">
+        <Link className="logo-header" href={"/"}>
           <Image
             alt="dogImage"
             src={"/assets/dogs.svg"}
@@ -18,11 +18,11 @@ export default function HeaderComponent() {
           />
         </Link>
         {user ? (
-          <Link className="login" href={"/conta"}>
+          <Link className="login-header" href={"/conta"}>
             Conta do Usuario
           </Link>
         ) : (
-          <Link className="login" href={"/login"}>
+          <Link className="login-header" href={"/login"}>
             Criar/Login
           </Link>
         )}

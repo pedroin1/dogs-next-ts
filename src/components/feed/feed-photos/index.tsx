@@ -15,8 +15,8 @@ export default function FeedPhotos({ photos }: Props) {
           <Link href={`/foto/${photo.id}`} scroll={false}>
             <Image
               src={photo.src}
-              width={1000}
-              height={1000}
+              width={1500}
+              height={1500}
               alt={photo.title}
               sizes="80vw"
             />

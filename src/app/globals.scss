@@ -3,7 +3,7 @@
 }
 
 body {
-  padding-top: 4rem;
+  padding-top: 2.5rem;
   margin: 0px;
   color: #333;
   --type-first: Helvetica, Arial, sans-serif;
@@ -65,7 +65,7 @@ a {
 }
 
 .title::after {
-  content: '';
+  content: "";
   display: block;
   width: 1.5rem;
   height: 1.5rem;
