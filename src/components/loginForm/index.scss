@@ -1,0 +1,42 @@
+.subtitle-cadastro {
+  line-height: 1;
+  font-size: 2rem;
+  margin-bottom: 16px;
+
+  ::after {
+    content: "";
+    display: block;
+    background: #ddd;
+    height: 0.5rem;
+    width: 3rem;
+    border-radius: 0.2rem;
+  }
+}
+
+.perdeu-senha-link {
+  margin-top: 24px;
+  text-decoration: underline;
+  font-size: 22px;
+}
+
+.cadastrar-link {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  color: black;
+  background-color: #ffbc11;
+  transition: ease background-color 250ms;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #cf990e;
+  }
+
+  &:disabled {
+    background-color: #cf990e;
+  }
+}
+
+p {
+  margin-bottom: 45px;
+}

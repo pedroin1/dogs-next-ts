@@ -1,19 +1,19 @@
 .login {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 100vh;
-    gap: 2rem
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+  gap: 2rem;
 }
 
-.login::before{
-    display: block;
-    content: '';
-    background: url("/assets/login.jpg") no-repeat;
-    background-size: cover;
+.login::before {
+  display: block;
+  content: "";
+  background: url("/assets/login.jpg") no-repeat;
+  background-size: cover;
 }
 
-.form-login{
-    max-width: 30rem;
-    padding:  1rem;
-    margin-top: 20vh;
+.form-login {
+  max-width: 30rem;
+  padding: 1rem;
+  margin-top: 20vh;
 }
