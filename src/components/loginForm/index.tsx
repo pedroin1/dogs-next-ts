@@ -1,24 +1,27 @@
 "use client";
 
 import loginUserAction from "@/actions/login-action";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ButtonComponent from "../button";
+import InputComponent from "../input";
+import ErrorMessage from "../helper/errorMessage";
 
 export default function LoginForm() {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [errors, setErrors] = useState<any>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleClickSubmitForm = async (event: any) => {
-    setIsLoading(true);
     event.preventDefault();
+    setIsLoading(true);
+
     if (username !== "" && password !== "") {
       const responseLogin = await loginUserAction(username, password);
-
       if (responseLogin.ok) {
-        alert("Usuario Logado");
+        window.location.href = "/conta";
       } else {
-        alert(responseLogin.error);
+        setErrors(responseLogin.error);
       }
     }
     setIsLoading(false);
@@ -27,8 +30,8 @@ export default function LoginForm() {
   return (
     <form>
       <div>
-        <label htmlFor="email">Email</label>
-        <input
+        <InputComponent
+          label="Email"
           required={true}
           type="text"
           name="email"
@@ -37,8 +40,8 @@ export default function LoginForm() {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <label htmlFor="password">Senha</label>
-        <input
+        <InputComponent
+          label="Senha"
           required={true}
           type="password"
           name="password"
@@ -48,10 +51,12 @@ export default function LoginForm() {
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
+      {errors && <ErrorMessage error={errors} />}
       <ButtonComponent
+        label="Entrar"
         disabled={isLoading}
-        onClick={handleClickSubmitForm}
-        label={isLoading ? "Entrando..." : "Entrar"}
+        loadingLabel="Entrando..."
+        handleClick={handleClickSubmitForm}
       />
     </form>
   );

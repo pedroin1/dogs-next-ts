@@ -1,0 +1,23 @@
+.input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.label-style {
+  font-size: 24px;
+}
+
+.input-style {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  color: black;
+  background-color: #d4d3d0;
+  margin-bottom: 22px;
+  outline: none;
+
+  &:focus {
+    cursor: pointer;
+    background-color: #9e9a8ea1;
+  }
+}

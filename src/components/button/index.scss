@@ -10,4 +10,8 @@
     cursor: pointer;
     background-color: #cf990e;
   }
+
+  &:disabled {
+    background-color: #cf990e;
+  }
 }
