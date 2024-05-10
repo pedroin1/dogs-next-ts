@@ -1,5 +1,4 @@
 import { ButtonHTMLAttributes, FormEvent } from "react";
-import "./index.scss";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   label: string;
@@ -15,7 +14,7 @@ export default function ButtonComponent({
   handleClick,
 }: ButtonProps) {
   return (
-    <button className="button-style" onClick={handleClick} disabled={disabled}>
+    <button className="button" onClick={handleClick} disabled={disabled}>
       {disabled ? loadingLabel : label}
     </button>
   );

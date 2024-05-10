@@ -103,3 +103,39 @@ a {
 .VictoryContainer {
   height: initial !important;
 }
+
+.button {
+  display: flex;
+  justify-content: center;
+  padding: 10px 20px;
+  width: fit-content;
+  border-radius: 8px;
+  border: none;
+  color: black;
+  background-color: #ffbc11;
+  font-family: "Helvetica", "Arial", "Sans-serif" !important;
+  font-weight: normal !important;
+  transition: ease background-color 250ms;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #cf990e;
+  }
+
+  &:disabled {
+    background-color: #cf990e;
+  }
+}
+
+.loader-animation {
+  animation: load 2s linear infinite;
+}
+
+@keyframes load {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

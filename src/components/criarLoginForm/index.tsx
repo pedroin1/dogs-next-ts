@@ -11,18 +11,26 @@ export default function CriarLoginForm() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [errors, setErrors] = useState<any>();
+  const [isLoading, setIsLoading] = useState<any>();
 
   const handleClickCreateUser = async (event: any) => {
     event.preventDefault();
+    setIsLoading(true);
 
-    if (username !== "" && password !== "" && email !== "") {
-      const responseCreateUser = await createUser(username, email, password);
+    try {
+      if (username !== "" && password !== "" && email !== "") {
+        const responseCreateUser = await createUser(username, email, password);
 
-      if (responseCreateUser.ok) {
-        window.location.href = "/login";
-      } else {
-        setErrors(responseCreateUser.error);
+        if (responseCreateUser.ok) {
+          window.location.href = "/conta";
+        } else {
+          setErrors(responseCreateUser.error);
+        }
       }
+    } catch (err: unknown) {
+      setErrors("Erro ao tentar criar o seu login!");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -62,9 +70,9 @@ export default function CriarLoginForm() {
       </div>
       {errors && <ErrorMessage error={errors} />}
       <ButtonComponent
-        label="Criar"
-        disabled={false}
-        loadingLabel="Criando..."
+        label="Cadastrar"
+        disabled={isLoading}
+        loadingLabel="Cadastrando..."
         handleClick={handleClickCreateUser}
       />
     </form>

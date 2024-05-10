@@ -60,15 +60,15 @@ export default function LoginForm() {
         loadingLabel="Entrando..."
         handleClick={handleClickSubmitForm}
       />
-      <div style={{ marginTop: "48px" }}>
+      <div className="perdeu-senha-container">
         <Link className="perdeu-senha-link" href={"/login/perdeu"}>
           Perdeu sua senha?
         </Link>
       </div>
-      <div style={{ marginTop: "48px" }}>
+      <div className="cadastrar-container">
         <h2 className="subtitle-cadastro">Cadastre-se</h2>
         <p>Ainda não tem uma conta? Cadastre-se agora no site.</p>
-        <Link className="cadastrar-link" href={"/login/criar"}>
+        <Link className="button" href={"/login/criar"}>
           Cadastrar
         </Link>
       </div>

@@ -1,9 +1,22 @@
-"use server";
+import PerdeuSenhaForm from "@/components/perdeuSenhaForm";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Perdeu a senha | Dogs",
+  description: "Pagina de perdeu a senha",
+};
 
 export default async function PerdeuSenhaPage() {
   return (
-    <div>
-      <h1>Pagina de perdeu a senha</h1>
+    <div className="animeLeft">
+      <div style={{ marginBottom: "12px" }}>
+        <h1 className="title">Perdeu a Senha?</h1>
+        <span style={{ fontSize: "18px" }}>
+          Informe seu email e clique no botão abaixo para enviarmos uma nova
+          senha!
+        </span>
+      </div>
+      <PerdeuSenhaForm />
     </div>
   );
 }

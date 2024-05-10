@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default async function CriarLoginPage() {
   return (
     <div className="animeLeft">
-      <h1 className="title">Pagina de criar login</h1>
+      <h1 className="title">Cadastre-se</h1>
       <CriarLoginForm />
     </div>
   );

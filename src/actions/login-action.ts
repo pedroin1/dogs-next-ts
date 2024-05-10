@@ -1,6 +1,6 @@
 "use server";
 
-import TOKEN_POST from "@/functions/api";
+import { TOKEN_POST } from "@/functions/api";
 import apiError from "@/functions/error-api";
 import { cookies } from "next/headers";
 

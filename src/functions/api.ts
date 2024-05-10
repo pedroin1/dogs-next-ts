@@ -7,5 +7,9 @@ export function TOKEN_POST() {
 }
 
 export function USER_POST() {
-  return { url: API_URL + "api/user" };
+  return { url: API_URL + "/api/user" };
+}
+
+export function FORGET_PASSWORD() {
+  return { url: API_URL + "/api/password/lost" };
 }
