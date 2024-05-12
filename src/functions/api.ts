@@ -13,3 +13,11 @@ export function USER_POST() {
 export function FORGET_PASSWORD() {
   return { url: API_URL + "/api/password/lost" };
 }
+
+export function RESET_PASSWORD() {
+  return { url: API_URL + "/api/password/reset" };
+}
+
+export function GET_USER() {
+  return { url: API_URL + "/api/user" };
+}

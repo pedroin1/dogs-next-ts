@@ -3,7 +3,7 @@ import CriarLoginForm from "@/components/criarLoginForm";
 import "./page.scss";
 
 export const metadata: Metadata = {
-  title: "Crie sua conta",
+  title: "Crie sua conta | Dogs",
   description: "Crie sua conta no site dogs",
 };
 

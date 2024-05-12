@@ -1,12 +1,12 @@
 "use client";
 
 import loginUserAction from "@/actions/login-action";
-import { useEffect, useState } from "react";
-import ButtonComponent from "../button";
-import InputComponent from "../input";
-import ErrorMessage from "../helper/errorMessage";
-import Link from "next/link";
 import "@/components/loginForm/index.scss";
+import Link from "next/link";
+import { useState } from "react";
+import ButtonComponent from "../button";
+import ErrorMessage from "../helper/errorMessage";
+import InputComponent from "../input";
 
 export default function LoginForm() {
   const [username, setUsername] = useState<string>("");
@@ -19,11 +19,11 @@ export default function LoginForm() {
     setIsLoading(true);
 
     if (username !== "" && password !== "") {
-      const responseLogin = await loginUserAction(username, password);
-      if (responseLogin.ok) {
+      const res = await loginUserAction(username, password);
+      if (res.ok) {
         window.location.href = "/conta";
       } else {
-        setErrors(responseLogin.error);
+        setErrors(res.error);
       }
     }
     setIsLoading(false);

@@ -1,5 +1,4 @@
 import LoginForm from "@/components/loginForm";
-import Link from "next/link";
 import { Metadata } from "next";
 import "./page.scss";
 

@@ -1,5 +1,6 @@
 import { FORGET_PASSWORD } from "@/functions/api";
-import apiError from "@/functions/error-api";
+import handleErrorApi from "@/functions/error-api";
+import handleSuccsesApi from "@/functions/sucsess-api";
 
 export default async function sendEmailForgetPassword(
   email: string,
@@ -17,8 +18,8 @@ export default async function sendEmailForgetPassword(
       const { message } = await response.json();
       throw new Error(message);
     }
-    return { data: null, ok: true, error: null };
+    return handleSuccsesApi(null);
   } catch (error: unknown) {
-    return apiError(error);
+    return handleErrorApi(error);
   }
 }

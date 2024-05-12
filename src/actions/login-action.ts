@@ -1,7 +1,8 @@
 "use server";
 
 import { TOKEN_POST } from "@/functions/api";
-import apiError from "@/functions/error-api";
+import handleErrorApi from "@/functions/error-api";
+import handleSuccsesApi from "@/functions/sucsess-api";
 import { cookies } from "next/headers";
 
 export default async function loginUserAction(
@@ -28,8 +29,8 @@ export default async function loginUserAction(
       maxAge: 60 * 60 * 1,
     });
 
-    return { data: null, ok: true, error: null };
+    return handleSuccsesApi(null);
   } catch (error: unknown) {
-    return apiError(error);
+    return handleErrorApi(error);
   }
 }

@@ -1,30 +1,19 @@
-//middleware e uma funçao que roda antes do carregamento da pagina
-// ele intercepta requisicoes
-// pode ser usada para autenticacao, logs, redirecionamento e etc...
-
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-//funcao que intercepta as rotas da da pagina
-export function middleware(request: NextRequest, response: NextResponse) {
-  //exemplo de validacao via token
+export async function middleware(request: NextRequest, response: NextResponse) {
   const token = request.cookies.get("token")?.value;
+  const authenticated = token ? true : false;
 
-  if (token) {
-    return NextResponse.next();
+  if (!authenticated && request.nextUrl.pathname.startsWith("/conta")) {
+    return NextResponse.redirect(new URL("/login", request.url));
+  } else if (authenticated && request.nextUrl.pathname.startsWith("/login")) {
+    return NextResponse.redirect(new URL("/conta", request.url)); // redirecionando sempre para a pagina inicial
   } else {
-    return NextResponse.redirect(new URL("/", request.url)); // redirecionando sempre para a pagina inicial
+    return NextResponse.next();
   }
 }
 
-//por default se n tiver matcher ele vai aplicat middleware para todas as rotas
 export const config = {
-  matcher: ["/imagens"], // serve para limitar a quais rotas serao aplicadas o middlware, ou seja serao interceptadas
-
-  //exemplos de config dfo matcher
-  // ["/imagens"] //uma rota
-  // ["/imagens", "/carros"] // duas rotas
-  // ["/imagens/:path*] rotdas as rotas ddepois de /imagens
-  // ["/(.*)] // rotas as rotas depois de /
-  // ["/regex"] pode criar regex para validar as rotas
+  matcher: ["/conta/:path*", "/login/:path*"], //configurando middleware para as urls de conta
 };

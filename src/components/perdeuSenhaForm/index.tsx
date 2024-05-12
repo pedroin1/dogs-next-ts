@@ -17,22 +17,20 @@ export default function PerdeuSenhaForm() {
     event?.preventDefault();
     setIsLoading(true);
 
-    try {
-      const responseForgetPassword = await sendEmailForgetPassword(
-        username,
-        url
-      );
+    if (username !== "" && url !== "") {
+      try {
+        const res = await sendEmailForgetPassword(username, url);
 
-      if (responseForgetPassword.ok) {
-        setEmailSucsess(true);
-      } else {
-        setErrors(responseForgetPassword.error);
+        if (res.ok) {
+          setEmailSucsess(true);
+        } else {
+          setErrors(res.error);
+        }
+      } catch (error: any) {
+        setErrors(error.message);
+      } finally {
+        setIsLoading(false);
       }
-    } catch (error: any) {
-      setErrors(error.message);
-    } finally {
-      setIsLoading(false);
-      setUrl("");
     }
   };
 
@@ -51,8 +49,7 @@ export default function PerdeuSenhaForm() {
           label="Email / Usuario"
           required={true}
           type="text"
-          name="usuario"
-          id="usuario"
+          name="login"
           placeholder="Crie seu usuario..."
           value={username}
           onChange={(e) => setUsername(e.target.value)}

@@ -1,9 +1,9 @@
 "use server";
 
 import { USER_POST } from "@/functions/api";
-import apiError from "@/functions/error-api";
 import loginUserAction from "./login-action";
-import { redirect } from "next/navigation";
+import handleSuccsesApi from "@/functions/sucsess-api";
+import handleErrorApi from "@/functions/error-api";
 
 export default async function createUser(
   username: string,
@@ -31,8 +31,8 @@ export default async function createUser(
       throw new Error("Erro ao logar usuario");
     }
 
-    return { data: null, ok: true, error: null };
+    return handleSuccsesApi(null);
   } catch (error: unknown) {
-    return apiError(error);
+    return handleErrorApi(error);
   }
 }

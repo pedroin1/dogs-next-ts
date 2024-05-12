@@ -19,15 +19,15 @@ export default function CriarLoginForm() {
 
     try {
       if (username !== "" && password !== "" && email !== "") {
-        const responseCreateUser = await createUser(username, email, password);
+        const res = await createUser(username, email, password);
 
-        if (responseCreateUser.ok) {
+        if (res.ok) {
           window.location.href = "/conta";
         } else {
-          setErrors(responseCreateUser.error);
+          setErrors(res.error);
         }
       }
-    } catch (err: unknown) {
+    } catch (error: unknown) {
       setErrors("Erro ao tentar criar o seu login!");
     } finally {
       setIsLoading(false);
