@@ -22,7 +22,7 @@ export default async function resetPassword(
     });
 
     if (!response.ok) throw new Error(`Erro ao alterar senha`);
-    return handleSuccsesApi(null);
+    return handleSuccsesApi({});
   } catch (error: unknown) {
     return handleErrorApi(error);
   }

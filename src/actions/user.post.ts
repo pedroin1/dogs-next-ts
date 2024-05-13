@@ -31,7 +31,7 @@ export default async function createUser(
       throw new Error("Erro ao logar usuario");
     }
 
-    return handleSuccsesApi(null);
+    return handleSuccsesApi({});
   } catch (error: unknown) {
     return handleErrorApi(error);
   }

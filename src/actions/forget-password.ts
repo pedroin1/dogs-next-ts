@@ -18,7 +18,7 @@ export default async function sendEmailForgetPassword(
       const { message } = await response.json();
       throw new Error(message);
     }
-    return handleSuccsesApi(null);
+    return handleSuccsesApi({});
   } catch (error: unknown) {
     return handleErrorApi(error);
   }
