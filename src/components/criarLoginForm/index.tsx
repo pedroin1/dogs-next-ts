@@ -1,10 +1,10 @@
 "use client";
 
+import createUser from "@/actions/user.post";
 import { useState } from "react";
 import ButtonComponent from "../button";
-import InputComponent from "../input";
 import ErrorMessage from "../helper/errorMessage";
-import createUser from "@/actions/user.post";
+import InputComponent from "../input";
 
 export default function CriarLoginForm() {
   const [username, setUsername] = useState<string>("");

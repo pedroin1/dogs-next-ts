@@ -7,7 +7,7 @@ export default function ContaPage() {
 
   return (
     <div>
-      <h1>Pagina da conta do usuario: {user?.nome}</h1>
+      <h1>Pagina do: {user?.nome}</h1>
     </div>
   );
 }
