@@ -22,8 +22,14 @@ export function GET_USER() {
   return { url: API_URL + "/api/user" };
 }
 
-export function GET_PHOTOS() {
-  return { url: API_URL + "/api/photo/?_page1&_total=6&_user=0" };
+export function GET_PHOTOS(
+  page: number,
+  total: number,
+  usuario: number | string
+) {
+  return {
+    url: API_URL + `/api/photo/?_page${page}&_total=${total}&_user=${usuario}`,
+  };
 }
 
 export function POST_PHOTO() {
