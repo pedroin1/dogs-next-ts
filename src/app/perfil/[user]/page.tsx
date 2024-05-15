@@ -1,5 +1,3 @@
-"use server";
-
 interface ParamsPerfil {
   params: {
     user: string;

@@ -13,7 +13,7 @@ export default function InputComponent({ label, error, ...props }: InputProps) {
       <label className="label-style" htmlFor={label}>
         {label}
       </label>
-      {label && <input className="input-style" {...props} />}
+      <input className="input-style" {...props} />
     </div>
   );
 }

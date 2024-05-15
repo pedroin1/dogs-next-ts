@@ -29,7 +29,7 @@ export default async function loginUserAction(
       maxAge: 60 * 60 * 1,
     });
 
-    return handleSuccsesApi(null);
+    return handleSuccsesApi({});
   } catch (error: unknown) {
     return handleErrorApi(error);
   }

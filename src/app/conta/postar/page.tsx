@@ -1,9 +1,15 @@
-"use server";
+import PostagemForm from "@/components/postagemForm";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Postar | Dogs",
+  description: "Pagina de postagem",
+};
 
 export default async function PostarPage() {
   return (
     <div>
-      <h1>Pagina de postar</h1>
+      <PostagemForm />
     </div>
   );
 }

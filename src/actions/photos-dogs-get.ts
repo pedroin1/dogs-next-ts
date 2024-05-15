@@ -1,5 +1,7 @@
 "use server";
 
+import { GET_PHOTOS } from "@/functions/api";
+
 export interface Photo {
   id: number;
   author: string;
@@ -13,9 +15,10 @@ export interface Photo {
 }
 
 export async function GetPhotosDogs() {
-  const response = await fetch(
-    "https://dogsapi.origamid.dev/json/api/photo/?_page1&_total=6&_user=0"
-  );
+  const { url } = GET_PHOTOS();
+  const response = await fetch(url, {
+    next: { revalidate: 10, tags: ["revalidatePhotos"] },
+  });
   const data = (await response.json()) as Photo[];
   return data;
 }

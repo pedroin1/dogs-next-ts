@@ -21,3 +21,11 @@ export function RESET_PASSWORD() {
 export function GET_USER() {
   return { url: API_URL + "/api/user" };
 }
+
+export function GET_PHOTOS() {
+  return { url: API_URL + "/api/photo/?_page1&_total=6&_user=0" };
+}
+
+export function POST_PHOTO() {
+  return { url: API_URL + "/api/photo" };
+}

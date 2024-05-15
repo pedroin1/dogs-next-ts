@@ -1,5 +1,3 @@
-"use server";
-
 export default async function FotoPage() {
   return (
     <div>
