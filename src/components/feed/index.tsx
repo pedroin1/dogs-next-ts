@@ -1,10 +1,11 @@
 "use client";
 
 import { GetPhotosDogs, Photo } from "@/actions/photos-dogs-get";
-import FeedPhotos from "./feed-photos";
-import { useEffect, useRef, useState } from "react";
-import "./index.scss";
 import { User } from "@/actions/user-get";
+import { useEffect, useRef, useState } from "react";
+import LoadingComponent from "../helper/loading";
+import FeedPhotos from "./feed-photos";
+import "./index.scss";
 
 type Props = {
   photos: Photo[];
@@ -73,7 +74,9 @@ export default function FeedComponent({ photos, user }: Props) {
   return (
     <div className="feed-content">
       <FeedPhotos photos={photosFeed} />
-      {isLoading && <span>Carregando...</span>}
+      <div className="loadingWrapper">
+        {isLoading && <LoadingComponent modal={true} />}
+      </div>
     </div>
   );
 }
