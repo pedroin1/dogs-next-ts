@@ -11,7 +11,7 @@ export default function FeedPhotos({ photos }: Props) {
   return (
     <ul className="feed animeLeft">
       {photos.map((photo: Photo, index) => (
-        <li className="photo" key={photo.id + index}>
+        <li className="photo" key={index}>
           <Link href={`/foto/${photo.id}`} scroll={false}>
             <Image
               src={photo.src}

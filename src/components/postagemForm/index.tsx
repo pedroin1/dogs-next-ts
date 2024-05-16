@@ -36,7 +36,7 @@ export default function PostagemForm() {
   };
 
   return (
-    <section style={{ display: "flex", flexDirection: "row", gap: "48px" }}>
+    <section className="container-form-post">
       <form className="animeLeft" onSubmit={handleClickPostPhoto}>
         <InputComponent
           label="Nome"

@@ -20,18 +20,22 @@ interface Props {
   page?: number;
   total?: number;
   usuario?: 0 | string;
+  optionFront?: RequestInit;
 }
 
 export async function GetPhotosDogs({
   page = 1,
   total = 6,
   usuario = 0,
+  optionFront,
 }: Props) {
   try {
     const { url } = GET_PHOTOS(page, total, usuario);
-    const response = await fetch(url, {
+
+    const optionRequest = optionFront || {
       next: { revalidate: 10, tags: ["revalidatePhotos"] },
-    });
+    };
+    const response = await fetch(url, optionRequest);
 
     if (!response.ok) {
       throw new Error("Ocorreu um erro ao listar as fotos");
