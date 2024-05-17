@@ -3,10 +3,16 @@
 import { useUser } from "@/context/user-context";
 import { CommentPhoto, Photo } from "@/types/types";
 import Image from "next/image";
+import PhotoDelete from "./delete";
 import "./index.scss";
 
 export default function PhotoContent({ photo, comments }: Props) {
-  const user = useUser();
+  const { user } = useUser();
+
+  function checkPhotoOfAuthor(username?: string, author?: string) {
+    if (username !== author) return true;
+    return false;
+  }
 
   return (
     <div className="photo-content-container animeLeft">
@@ -19,7 +25,12 @@ export default function PhotoContent({ photo, comments }: Props) {
         />
       </div>
       <div className="first-row">
-        <span>{`@${photo.author}`}</span>
+        {checkPhotoOfAuthor(user?.username, photo.author) ? (
+          <PhotoDelete id={photo.id} />
+        ) : (
+          <span className="author-hover">{`@${photo.author}`}</span>
+        )}
+
         <span className="icon-visu">{photo.acessos}</span>
       </div>
       <span className="second-row title">{photo.title}</span>

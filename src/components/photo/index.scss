@@ -29,6 +29,10 @@
   background: url("/assets/visualizacao-black.svg");
 }
 
+.author-hover:hover {
+  text-decoration: underline;
+}
+
 .last-row {
   display: flex;
   gap: 16px;
