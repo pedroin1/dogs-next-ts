@@ -3,25 +3,7 @@
 import { GET_PHOTOS } from "@/functions/api";
 import handleErrorApi from "@/functions/error-api";
 import handleSuccsesApi from "@/functions/sucsess-api";
-
-export interface Photo {
-  id: number;
-  author: string;
-  title: string;
-  date: string;
-  src: string;
-  peso: number;
-  idade: number;
-  acessos: number;
-  total_comments: number;
-}
-
-interface Props {
-  page?: number;
-  total?: number;
-  usuario?: 0 | string;
-  optionFront?: RequestInit;
-}
+import { Photo } from "@/types/types";
 
 export async function GetPhotosDogs({
   page = 1,
@@ -47,3 +29,10 @@ export async function GetPhotosDogs({
     return handleErrorApi(error);
   }
 }
+
+type Props = {
+  page?: number;
+  total?: number;
+  usuario?: 0 | string;
+  optionFront?: RequestInit;
+};

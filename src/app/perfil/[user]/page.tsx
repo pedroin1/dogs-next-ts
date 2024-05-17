@@ -1,9 +1,3 @@
-interface ParamsPerfil {
-  params: {
-    user: string;
-  };
-}
-
 export default async function UserPefilPage({ params }: ParamsPerfil) {
   return (
     <div>
@@ -11,3 +5,9 @@ export default async function UserPefilPage({ params }: ParamsPerfil) {
     </div>
   );
 }
+
+type ParamsPerfil = {
+  params: {
+    user: string;
+  };
+};

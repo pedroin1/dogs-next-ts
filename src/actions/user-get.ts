@@ -1,14 +1,8 @@
 import { GET_USER } from "@/functions/api";
 import handleErrorApi from "@/functions/error-api";
 import handleSuccsesApi from "@/functions/sucsess-api";
+import { User } from "@/types/types";
 import { cookies } from "next/headers";
-
-export interface User {
-  id: number;
-  email: string;
-  username: string;
-  nome: string;
-}
 
 export default async function getUser() {
   const { url } = GET_USER();

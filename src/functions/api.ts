@@ -1,25 +1,25 @@
 //@ts-nocheck
 
-export const API_URL = "https://dogsapi.origamid.dev/json";
+export const API_URL = "https://dogsapi.origamid.dev/json/api";
 
 export function TOKEN_POST() {
-  return { url: API_URL + "/jwt-auth/v1/token" };
+  return { url: "https://dogsapi.origamid.dev/json/jwt-auth/v1/token" };
 }
 
 export function USER_POST() {
-  return { url: API_URL + "/api/user" };
+  return { url: API_URL + "/user" };
 }
 
 export function FORGET_PASSWORD() {
-  return { url: API_URL + "/api/password/lost" };
+  return { url: API_URL + "/password/lost" };
 }
 
 export function RESET_PASSWORD() {
-  return { url: API_URL + "/api/password/reset" };
+  return { url: API_URL + "/password/reset" };
 }
 
 export function GET_USER() {
-  return { url: API_URL + "/api/user" };
+  return { url: API_URL + "/user" };
 }
 
 export function GET_PHOTOS(
@@ -28,10 +28,16 @@ export function GET_PHOTOS(
   usuario: number | string
 ) {
   return {
-    url: API_URL + `/api/photo/?_page${page}&_total=${total}&_user=${usuario}`,
+    url: API_URL + `/photo/?_page${page}&_total=${total}&_user=${usuario}`,
+  };
+}
+
+export function GET_PHOTO_BY_ID(id: number) {
+  return {
+    url: API_URL + `/photo/${id}`,
   };
 }
 
 export function POST_PHOTO() {
-  return { url: API_URL + "/api/photo" };
+  return { url: API_URL + "/photo" };
 }

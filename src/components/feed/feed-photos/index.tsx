@@ -3,10 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import "./index.scss";
 
-type Props = {
-  photos: Photo[];
-};
-
 export default function FeedPhotos({ photos }: Props) {
   return (
     <ul className="feed animeLeft">
@@ -27,3 +23,7 @@ export default function FeedPhotos({ photos }: Props) {
     </ul>
   );
 }
+
+type Props = {
+  photos: Photo[];
+};

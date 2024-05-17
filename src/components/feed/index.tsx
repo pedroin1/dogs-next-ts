@@ -1,16 +1,11 @@
 "use client";
 
-import { GetPhotosDogs, Photo } from "@/actions/photos-dogs-get";
-import { User } from "@/actions/user-get";
+import { GetPhotosDogs } from "@/actions/photos-dogs-get";
+import { Photo, User } from "@/types/types";
 import { useEffect, useRef, useState } from "react";
 import LoadingComponent from "../helper/loading";
 import FeedPhotos from "./feed-photos";
 import "./index.scss";
-
-type Props = {
-  photos: Photo[];
-  user: User;
-};
 
 export default function FeedComponent({ photos, user }: Props) {
   const addingPageCounter = useRef(false);
@@ -81,3 +76,8 @@ export default function FeedComponent({ photos, user }: Props) {
     </div>
   );
 }
+
+type Props = {
+  photos: Photo[];
+  user: User;
+};

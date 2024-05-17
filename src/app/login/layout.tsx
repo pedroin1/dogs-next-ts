@@ -1,9 +1,5 @@
 import "./page.scss";
 
-type Props = {
-  children: React.ReactNode;
-};
-
 export default async function LoginLayout({ children }: Props) {
   return (
     <div className="login">
@@ -11,3 +7,7 @@ export default async function LoginLayout({ children }: Props) {
     </div>
   );
 }
+
+type Props = {
+  children: React.ReactNode;
+};
