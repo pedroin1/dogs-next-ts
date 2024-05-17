@@ -25,15 +25,13 @@ export default function FeedComponent({ photos, user }: Props) {
     if (addingPageCounter.current) {
       return;
     } else {
-      setIsLoading(false);
-
-      setTimeout(() => {
-        setPageNumber((state) => (state = state + 1));
-        addingPageCounter.current = false;
-        setIsLoading(true);
-      }, 1000);
-
       addingPageCounter.current = true;
+      setIsLoading(true);
+      setTimeout(() => {
+        setPageNumber((currentPage) => (currentPage = currentPage + 1));
+        addingPageCounter.current = false;
+        setIsLoading(false);
+      }, 1000);
     }
   };
 
@@ -61,9 +59,8 @@ export default function FeedComponent({ photos, user }: Props) {
         usuario: user ? user.username : `origamid`,
         optionFront: { cache: "no-store" },
       });
-      console.log(newPhotos);
 
-      if (newPhotos) {
+      if (newPhotos !== null) {
         setPhotosFeed((currentPhotos) => [...currentPhotos, ...newPhotos]);
         if (newPhotos.length < 6) setDisableScroll(true);
       }
@@ -75,7 +72,11 @@ export default function FeedComponent({ photos, user }: Props) {
     <div className="feed-content">
       <FeedPhotos photos={photosFeed} />
       <div className="loadingWrapper">
-        {isLoading && <LoadingComponent modal={true} />}
+        {!disableScroll ? (
+          isLoading && <LoadingComponent />
+        ) : (
+          <p>Acabaram as fotos no momento...</p>
+        )}
       </div>
     </div>
   );
