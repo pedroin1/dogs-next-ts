@@ -1,7 +1,7 @@
 export default async function PerfilPage() {
   return (
-    <div>
+    <section>
       <h1>Pagina do perfil</h1>
-    </div>
+    </section>
   );
 }

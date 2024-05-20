@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default async function PerdeuSenhaPage() {
   return (
-    <div className="animeLeft">
+    <section className="animeLeft">
       <div style={{ marginBottom: "12px" }}>
         <h1 className="title">Perdeu a Senha?</h1>
         <span style={{ fontSize: "18px" }}>
@@ -17,6 +17,6 @@ export default async function PerdeuSenhaPage() {
         </span>
       </div>
       <PerdeuSenhaForm />
-    </div>
+    </section>
   );
 }

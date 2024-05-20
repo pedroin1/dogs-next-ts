@@ -6,6 +6,12 @@ export function TOKEN_POST() {
   return { url: "https://dogsapi.origamid.dev/json/jwt-auth/v1/token" };
 }
 
+export function VALIDATE_TOKEN() {
+  return {
+    url: "https://dogsapi.origamid.dev/json/jwt-auth/v1/token/validate",
+  };
+}
+
 export function USER_POST() {
   return { url: API_URL + "/user" };
 }
@@ -46,6 +52,8 @@ export function DELETE_PHOTO(idPhoto: number) {
   return { url: API_URL + `/photo/${idPhoto}` };
 }
 
-export function ADD_COMMENT(idPhoto: number) {
-  return { url: API_URL + `/comment/${idPhoto}` };
+export function GET_STATS() {
+  return {
+    url: API_URL + "/stats",
+  };
 }
