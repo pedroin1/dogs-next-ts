@@ -3,14 +3,15 @@
 import { useUser } from "@/context/user-context";
 import { CommentPhoto, Photo } from "@/types/types";
 import Image from "next/image";
-import PhotoDelete from "./delete";
+import PhotoDelete from "./photoDelete/delete";
 import "./index.scss";
+import PhotoComments from "./photoComment/photoComments";
 
 export default function PhotoContent({ photo, comments }: Props) {
   const { user } = useUser();
 
   function checkPhotoOfAuthor(username?: string, author?: string) {
-    if (username !== author) return true;
+    if (username === author) return true;
     return false;
   }
 
@@ -38,16 +39,13 @@ export default function PhotoContent({ photo, comments }: Props) {
         <span>{photo.peso} kg</span>
         <span>{photo.idade} anos</span>
       </div>
-      {/* <ul>
-        {comments?.map((commentary) => (
-          <li>{commentary.comment_content}</li>
-        ))}
-      </ul> */}
+      <br />
+      <PhotoComments id={photo.id} singleImage={true} comments={comments} />
     </div>
   );
 }
 
 type Props = {
   photo: Photo;
-  comments?: CommentPhoto[];
+  comments: CommentPhoto[];
 };

@@ -5,15 +5,28 @@ import { useState } from "react";
 import ButtonComponent from "../button";
 import ErrorMessage from "../helper/errorMessage";
 import InputComponent from "../input";
+import { useFormState, useFormStatus } from "react-dom";
 import "./index.scss";
 
+function FormButton() {
+  const { pending } = useFormStatus();
+  return (
+    <ButtonComponent
+      label="Postar"
+      loadingLabel="Postando"
+      disabled={pending}
+    />
+  );
+}
+
 export default function PostagemForm() {
-  const [nome, setNome] = useState<string>("");
-  const [peso, setPeso] = useState<number>(0);
-  const [idade, setIdade] = useState<number>(0);
-  const [imageFile, setImageFile] = useState<any>("");
-  const [errors, setErrors] = useState<any>();
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [imageFile, setImageFile] = useState("");
+
+  const [state, action] = useFormState(photoPost, {
+    ok: false,
+    error: ``,
+    data: null,
+  });
 
   const handleChangeImageFile = ({
     target,
@@ -23,52 +36,16 @@ export default function PostagemForm() {
     }
   };
 
-  const handleClickPostPhoto = async (event: any) => {
-    event.preventDefault();
-    setIsLoading(true);
-    try {
-      await photoPost(nome, idade, peso, imageFile);
-    } catch (error: unknown) {
-      setErrors(error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   return (
     <section className="container-form-post">
-      <form className="animeLeft" onSubmit={handleClickPostPhoto}>
-        <InputComponent
-          label="Nome"
-          name="nome"
-          type="text"
-          value={nome}
-          onChange={(e) => setNome(e.target.value)}
-        />
-        <InputComponent
-          label="Peso"
-          name="peso"
-          type="number"
-          value={peso}
-          min={0}
-          onChange={(e) => setPeso(e.target.valueAsNumber)}
-        />
-        <InputComponent
-          label="Idade"
-          name="idade"
-          type="number"
-          value={idade}
-          min={0}
-          onChange={(e) => setIdade(e.target.valueAsNumber)}
-        />
-        <input name="fileImage" type="file" onChange={handleChangeImageFile} />
+      <form className="animeLeft" action={action}>
+        <InputComponent label="Nome" name="nome" type="text" />
+        <InputComponent label="Peso" name="peso" type="number" min={0} />
+        <InputComponent label="Idade" name="idade" type="number" min={0} />
+        <input name="img" type="file" onChange={handleChangeImageFile} />
         <br />
-        {errors && <ErrorMessage error={errors} />}
-        <ButtonComponent
-          label="Postar"
-          loadingLabel="Postando..."
-          disabled={isLoading}
-        />
+        {state.error && <ErrorMessage error={state.error} />}
+        <FormButton />
       </form>
       <div>
         <div

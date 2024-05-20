@@ -1,0 +1,55 @@
+.single {
+  margin: 1rem 0;
+}
+
+.form-comment-container {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  margin-bottom: 64px;
+
+  textarea {
+    background-color: #c1c1c1;
+    border: none;
+    flex: 1;
+    height: 60px;
+    resize: none;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 18px;
+
+    &:focus,
+    &:hover {
+      background-color: white;
+      box-sizing: border-box;
+      box-shadow: 0 0 0 3px #fea;
+      border-color: #fb1;
+      outline: 0;
+    }
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    overflow: hidden;
+    color: #333;
+
+    &:hover svg path {
+      fill: #fea;
+      stroke: #fb1;
+    }
+
+    &:hover svg g {
+      animation: latir 0.6s infinite;
+    }
+  }
+
+  @keyframes latir {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}

@@ -79,5 +79,5 @@ export default function FeedComponent({ photos, user }: Props) {
 
 type Props = {
   photos: Photo[];
-  user: User;
+  user?: User;
 };

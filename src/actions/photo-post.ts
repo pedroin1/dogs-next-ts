@@ -6,14 +6,14 @@ import { revalidateTag } from "next/cache";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
-export async function photoPost(
-  nome: string,
-  idade: number,
-  peso: number,
-  image: File
-) {
+export async function photoPost(state: {}, formData: FormData) {
+  const nome = formData.get("nome") as string | null;
+  const idade = formData.get("idade") as number | null;
+  const peso = formData.get("peso") as number | null;
+  const img = formData.get("img") as File;
+
   try {
-    if (!nome || !idade || !peso || !image) {
+    if (!nome || !idade || !peso || !img) {
       throw new Error("Preencha todos os dados dos campos.");
     }
 
@@ -22,19 +22,11 @@ export async function photoPost(
 
     const response = await fetch(url, {
       method: "POST",
-      body: JSON.stringify({
-        nome: nome,
-        idade: idade,
-        peso: peso,
-        img: image as File,
-      }),
       headers: {
         Authorization: "Bearer " + token,
-        "Content-Type": "application/json",
       },
+      body: formData,
     });
-
-    console.log(await response.json());
 
     if (!response.ok) {
       throw new Error("Erro ao postar foto");
@@ -44,5 +36,5 @@ export async function photoPost(
   }
 
   revalidateTag("revalidatePhotos");
-  redirect("/");
+  redirect("/conta");
 }
