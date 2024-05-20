@@ -6,6 +6,12 @@ export function TOKEN_POST() {
   return { url: "https://dogsapi.origamid.dev/json/jwt-auth/v1/token" };
 }
 
+export function VALIDATE_TOKEN() {
+  return {
+    url: "https://dogsapi.origamid.dev/json/jwt-auth/v1/token/validate",
+  };
+}
+
 export function USER_POST() {
   return { url: API_URL + "/user" };
 }
