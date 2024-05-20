@@ -9,7 +9,7 @@ export default function NotFound() {
         margin: "15% auto",
       }}
     >
-      <h1 className="title">Página Não Encontrada</h1>
+      <h1 className="title">{`Página Não Encontrada 🐾`}</h1>
       <Link style={{ alignSelf: "center" }} className="button" href={"/"}>
         Pagina principal
       </Link>

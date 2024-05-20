@@ -1,4 +1,14 @@
+import getStatistics from "@/actions/get-stats";
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
+
+//lazy loading Components
+const GraphStats = dynamic(() => import("@/components/graphStats"), {
+  loading: () => (
+    <span style={{ fontSize: "22px" }}>Carregando graficos...</span>
+  ),
+  ssr: false,
+});
 
 export const metadata: Metadata = {
   title: "Estatísticas | Dogs",
@@ -6,9 +16,7 @@ export const metadata: Metadata = {
 };
 
 export default async function EstatisticasPage() {
-  return (
-    <div>
-      <h1>Pagina de estatisticas</h1>
-    </div>
-  );
+  const { data } = await getStatistics();
+
+  return <section>{data && <GraphStats data={data} />}</section>;
 }

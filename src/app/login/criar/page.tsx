@@ -1,5 +1,5 @@
-import { Metadata } from "next";
 import CriarLoginForm from "@/components/criarLoginForm";
+import { Metadata } from "next";
 import "./page.scss";
 
 export const metadata: Metadata = {
@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 
 export default async function CriarLoginPage() {
   return (
-    <div className="animeLeft">
+    <section className="animeLeft">
       <h1 className="title">Cadastre-se</h1>
       <CriarLoginForm />
-    </div>
+    </section>
   );
 }

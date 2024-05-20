@@ -45,3 +45,9 @@ export function POST_PHOTO() {
 export function DELETE_PHOTO(idPhoto: number) {
   return { url: API_URL + `/photo/${idPhoto}` };
 }
+
+export function GET_STATS() {
+  return {
+    url: API_URL + "/stats",
+  };
+}

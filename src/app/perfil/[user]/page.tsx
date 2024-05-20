@@ -1,8 +1,8 @@
 export default async function UserPefilPage({ params }: ParamsPerfil) {
   return (
-    <div>
+    <section>
       <h1>Pagina de perfil do usuario: {params.user}</h1>
-    </div>
+    </section>
   );
 }
 
