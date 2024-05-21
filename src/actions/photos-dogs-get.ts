@@ -15,7 +15,7 @@ export async function GetPhotosDogs({
     const { url } = GET_PHOTOS(page, total, usuario);
 
     const optionRequest = optionFront || {
-      next: { revalidate: 10, tags: ["revalidatePhotos"] },
+      next: { revalidate: 10, tags: ["photos", "comments"] },
     };
     const response = await fetch(url, optionRequest);
 

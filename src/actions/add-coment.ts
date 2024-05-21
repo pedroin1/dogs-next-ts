@@ -27,7 +27,7 @@ export default async function addComment(idPhoto: number, comment: string) {
     }
 
     const data = (await response.json()) as CommentPhoto;
-    revalidateTag("revalidatePhotos");
+    revalidateTag("comments");
     return handleSuccsesApi(data);
   } catch (error: unknown) {
     return handleErrorApi(error);

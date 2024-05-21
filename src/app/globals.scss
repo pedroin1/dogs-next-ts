@@ -8,7 +8,8 @@ body {
   color: #333;
   --type-first: Helvetica, Arial, sans-serif;
   --type-second: var(--type-second-spectral), Georgia;
-  font-family: var(--type-first);
+  --type-third: var(--type-third-roboto), Georgia;
+  font-family: var(--type-second);
 }
 
 h1,

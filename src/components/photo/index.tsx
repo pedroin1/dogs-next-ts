@@ -7,7 +7,7 @@ import PhotoDelete from "./photoDelete/delete";
 import "./index.scss";
 import PhotoComments from "./photoComment/photoComments";
 
-export default function PhotoContent({ photo, comments }: Props) {
+export default function PhotoContent({ photo, comments, singleImage }: Props) {
   const { user } = useUser();
 
   function checkPhotoOfAuthor(username?: string, author?: string) {
@@ -40,12 +40,17 @@ export default function PhotoContent({ photo, comments }: Props) {
         <span>{photo.idade} anos</span>
       </div>
       <br />
-      <PhotoComments id={photo.id} singleImage={true} comments={comments} />
+      <PhotoComments
+        id={photo.id}
+        singleImage={singleImage}
+        comments={comments}
+      />
     </div>
   );
 }
 
 type Props = {
+  singleImage: boolean;
   photo: Photo;
   comments: CommentPhoto[];
 };

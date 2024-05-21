@@ -9,6 +9,10 @@ export default async function getPhotoById(id: number) {
     const { url } = GET_PHOTO_BY_ID(id);
     const response = await fetch(url, {
       method: "GET",
+      next: {
+        revalidate: 60,
+        tags: ["photos", "comments"],
+      },
     });
 
     if (!response.ok) throw "Erro ao buscar esta foto";

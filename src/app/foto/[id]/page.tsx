@@ -19,6 +19,7 @@ export default async function FotoPage({ params }: Params) {
     <section className="container M">
       {photoAndComments ? (
         <PhotoContent
+          singleImage={true}
           photo={photoAndComments.photo}
           comments={photoAndComments.comments}
         />

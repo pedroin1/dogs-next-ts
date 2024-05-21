@@ -5,35 +5,35 @@ import { useEffect, useRef, useState } from "react";
 import { useUser } from "@/context/user-context";
 import PhotoCommentForm from "../photoCommentForm";
 
-export default function PhotoComments({ id, singleImage, comments }: Props) {
-  console.log(comments);
-
+export default function PhotoComments(props: Props) {
   const { user } = useUser();
   const commentsSection = useRef<HTMLUListElement>(null);
-  const [commentsState, setComments] = useState(() => comments);
+  const [comments, setComments] = useState(() => props.comments);
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (commentsSection.current) {
+      commentsSection.current.scrollTop = commentsSection.current.scrollHeight;
+    }
+    console.log(commentsSection);
+  }, [comments]);
 
   return (
     <>
-      <ul>
+      <ul
+        ref={commentsSection}
+        className={`${props.singleImage ? `single` : ""}`}
+      >
         {comments?.map((comment) => (
-          <li key={comment.comment_ID}>
-            <span
-              style={{
-                fontSize: `20px`,
-              }}
-            >
-              <b>{comment.comment_author}:</b>
-            </span>
+          <li key={comment.comment_ID} className="container-comment">
+            <span className="author-tag">@{comment.comment_author}:</span>
             <span>{comment.comment_content}</span>
           </li>
         ))}
       </ul>
       {user && (
         <PhotoCommentForm
-          id={id}
-          singleImage={singleImage}
+          id={props.id}
+          singleImage={props.singleImage}
           setComments={setComments}
         />
       )}

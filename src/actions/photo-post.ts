@@ -35,6 +35,6 @@ export async function photoPost(state: {}, formData: FormData) {
     return handleErrorApi(error);
   }
 
-  revalidateTag("revalidatePhotos");
+  revalidateTag("photos");
   redirect("/conta");
 }

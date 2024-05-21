@@ -26,6 +26,6 @@ export async function photoDelete(id: number) {
     return handleErrorApi(error);
   }
 
-  revalidateTag("revalidatePhotos");
+  revalidateTag("photos");
   redirect("/conta");
 }
