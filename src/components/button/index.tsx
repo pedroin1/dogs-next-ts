@@ -8,7 +8,7 @@ export default function ButtonComponent({
 }: ButtonProps) {
   return (
     <button className="button" onClick={handleClick} disabled={disabled}>
-      {disabled ? loadingLabel : label}
+      <span>{disabled ? loadingLabel : label}</span>
     </button>
   );
 }

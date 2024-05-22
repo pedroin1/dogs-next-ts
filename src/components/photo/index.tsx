@@ -3,10 +3,10 @@
 import { useUser } from "@/context/user-context";
 import { CommentPhoto, Photo } from "@/types/types";
 import Image from "next/image";
-import PhotoDelete from "./photoDelete/delete";
+import Link from "next/link";
 import styles from "./index.module.css";
 import PhotoComments from "./photoComment/photoComments";
-import Link from "next/link";
+import PhotoDelete from "./photoDelete/delete";
 
 export default function PhotoContent({ photo, comments, singleImage }: Props) {
   const { user } = useUser();

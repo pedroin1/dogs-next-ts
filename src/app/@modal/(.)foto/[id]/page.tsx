@@ -1,7 +1,6 @@
 import getPhotoById from "@/actions/photo-by-id";
 import NotFound from "@/app/not-found";
 import ModalFoto from "@/components/modalFoto";
-import PhotoContent from "@/components/photo";
 
 export default async function Modal({ params }: Params) {
   const photoAndComments = await getPhotoById(params.id);

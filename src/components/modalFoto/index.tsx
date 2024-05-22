@@ -1,12 +1,9 @@
 "use client";
 
 import { CommentPhoto, Photo } from "@/types/types";
+import { usePathname, useRouter } from "next/navigation";
 import PhotoContent from "../photo";
 import "./index.scss";
-import { usePathname, useRouter } from "next/navigation";
-import { useEffect } from "react";
-import path from "path";
-import { resourceUsage } from "process";
 
 export default function ModalFoto({ photo, comments }: Props) {
   const route = useRouter();

@@ -2,10 +2,10 @@
 
 import { photoPost } from "@/actions/photo-post";
 import { useState } from "react";
+import { useFormState, useFormStatus } from "react-dom";
 import ButtonComponent from "../button";
 import ErrorMessage from "../helper/errorMessage";
 import InputComponent from "../input";
-import { useFormState, useFormStatus } from "react-dom";
 import "./index.scss";
 
 function FormButton() {
@@ -48,12 +48,16 @@ export default function PostagemForm() {
         <FormButton />
       </form>
       <div>
-        <div
-          style={{
-            padding: "200px",
-            backgroundImage: `url(${imageFile})`,
-          }}
-        ></div>
+        {imageFile ? (
+          <div
+            className="photo-preview-post"
+            style={{
+              backgroundImage: `url(${imageFile})`,
+            }}
+          ></div>
+        ) : (
+          <div className="photo-skeleton-post"></div>
+        )}
       </div>
     </section>
   );

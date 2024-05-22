@@ -1,9 +1,9 @@
 `use client`;
-import { CommentPhoto } from "@/types/types";
-import "./index.scss";
-import { useEffect, useRef, useState } from "react";
 import { useUser } from "@/context/user-context";
+import { CommentPhoto } from "@/types/types";
+import { useEffect, useRef, useState } from "react";
 import PhotoCommentForm from "../photoCommentForm";
+import "./index.scss";
 
 export default function PhotoComments(props: Props) {
   const { user } = useUser();
@@ -14,7 +14,6 @@ export default function PhotoComments(props: Props) {
     if (commentsSection.current) {
       commentsSection.current.scrollTop = commentsSection.current.scrollHeight;
     }
-    console.log(commentsSection);
   }, [comments]);
 
   return (

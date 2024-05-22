@@ -1,5 +1,21 @@
 .container-form-post {
   display: flex;
   flex-direction: row;
-  gap: 48px;
+  gap: 64px;
+}
+
+.photo-preview-post {
+  padding: 200px;
+  border-radius: 1rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.photo-skeleton-post {
+  padding: 200px;
+  border-radius: 1rem;
+  background: url("/assets/image-silhoute.jpg");
+  background-size: cover;
+  background-position: center center;
 }
