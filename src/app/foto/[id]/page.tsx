@@ -16,7 +16,7 @@ export default async function FotoPage({ params }: Params) {
   if (!photoAndComments) return notFound();
 
   return (
-    <section className="container M">
+    <section className="container">
       {photoAndComments ? (
         <PhotoContent
           singleImage={true}
